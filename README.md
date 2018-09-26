@@ -175,5 +175,37 @@
 	* onError(..): 错误的回调
 
 ## 5. 简单的例子
-### 初始化
-	
+### 初始化（在应用启动生命周期调用一次即可）
+    let config = NetConfing.Builder()
+			    .addDefaultBaseUrl(baseUrl: "http://192.168.1.125:8090")
+			    .addInterceptor(interceptor:ParamsDefaultInterceptor(), isApped: true)
+			    .addInterceptor(interceptor: DefaultLogInterceptor(), isApped: true)
+			    .build()
+	AutoNet.getInstance().initAutoNet(config: config)
+		    .setBodyCallback { (response, onError) -> Bool in
+		        if(response != nil){
+		            let res = try? AutoNetUtil.jsonToModelConvert(jsonData: response?.data, t: BaseResponse<Any>())
+		            if(res != nil){
+		                if(!res!!.isSuccess()){
+		                    if(onError != nil){
+		                        onError!(AutoNetError.CustomError(code: res!!.getCode(), message: res!!.getMessage()))
+		                        return true;
+		                    }
+		                }
+		            }
+		        }
+		        return false
+			}
+### 简单使用
+    AutoNet.getInstance().createNet(BaseResponse<IndexBody>(), Array<IndexEntity>())
+    .setUrl(url: "/index/test")
+    .doPost()
+    .addParam(key: "pagerNo", value: 0)
+    .addParam(key: "pagerCount", value: 10)
+    .start(handlerBefore: { (response, onError) -> [IndexEntity]? in
+        return response.data?.indexEntitys
+    }, onSuccess: { (entitys) in
+        print(entitys)
+    }) { (error) in
+        print(error)
+	}
