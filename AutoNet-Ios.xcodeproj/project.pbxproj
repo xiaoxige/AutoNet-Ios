@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93E987C2800CF613423D52D2 /* Pods_AutoNet_Ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA54573D1C640184C22B571E /* Pods_AutoNet_Ios.framework */; };
+		B69B7D9A215B352D001CE3E6 /* AutoNetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D7D215B352D001CE3E6 /* AutoNetClosure.swift */; };
+		B69B7D9B215B352D001CE3E6 /* AutoNetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D7F215B352D001CE3E6 /* AutoNetExtension.swift */; };
+		B69B7D9C215B352D001CE3E6 /* AutoNetDefaultRespose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D81215B352D001CE3E6 /* AutoNetDefaultRespose.swift */; };
+		B69B7D9D215B352D001CE3E6 /* AutoNetUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D83215B352D001CE3E6 /* AutoNetUtil.swift */; };
+		B69B7D9E215B352D001CE3E6 /* AutoNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D84215B352D001CE3E6 /* AutoNet.swift */; };
+		B69B7D9F215B352D001CE3E6 /* NetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D86215B352D001CE3E6 /* NetConfig.swift */; };
+		B69B7DA0215B352D001CE3E6 /* RealNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D87215B352D001CE3E6 /* RealNet.swift */; };
+		B69B7DA1215B352D001CE3E6 /* TestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D88215B352D001CE3E6 /* TestInterceptor.swift */; };
+		B69B7DA2215B352D001CE3E6 /* DefaultLogInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D8A215B352D001CE3E6 /* DefaultLogInterceptor.swift */; };
+		B69B7DA3215B352D001CE3E6 /* RequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D8C215B352D001CE3E6 /* RequestParams.swift */; };
+		B69B7DA4215B352D001CE3E6 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D8D215B352D001CE3E6 /* Request.swift */; };
+		B69B7DA5215B352D001CE3E6 /* AutoNetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D8F215B352D001CE3E6 /* AutoNetError.swift */; };
+		B69B7DA6215B352D001CE3E6 /* RealInterceptorChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D91215B352D001CE3E6 /* RealInterceptorChain.swift */; };
+		B69B7DA7215B352D001CE3E6 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D92215B352D001CE3E6 /* Chain.swift */; };
+		B69B7DA8215B352D001CE3E6 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D93215B352D001CE3E6 /* Interceptor.swift */; };
+		B69B7DA9215B352D001CE3E6 /* RealNetInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D94215B352D001CE3E6 /* RealNetInterceptor.swift */; };
+		B69B7DAA215B352D001CE3E6 /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D96215B352D001CE3E6 /* Headers.swift */; };
+		B69B7DAB215B352D001CE3E6 /* AutoNetConvertDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D98215B352D001CE3E6 /* AutoNetConvertDelegate.swift */; };
+		B69B7DAC215B352D001CE3E6 /* DefaultJsonConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D99215B352D001CE3E6 /* DefaultJsonConvert.swift */; };
+		E3350C7D215B33A100B617FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3350C7C215B33A100B617FF /* AppDelegate.swift */; };
+		E3350C7F215B33A100B617FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3350C7E215B33A100B617FF /* ViewController.swift */; };
+		E3350C82215B33A100B617FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3350C80215B33A100B617FF /* Main.storyboard */; };
+		E3350C84215B33A300B617FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3350C83215B33A300B617FF /* Assets.xcassets */; };
+		E3350C87215B33A300B617FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3350C85215B33A300B617FF /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		12B947BB8306B362E00F4053 /* Pods-AutoNet-Ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoNet-Ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoNet-Ios/Pods-AutoNet-Ios.release.xcconfig"; sourceTree = "<group>"; };
+		B69B7D7D215B352D001CE3E6 /* AutoNetClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoNetClosure.swift; sourceTree = "<group>"; };
+		B69B7D7F215B352D001CE3E6 /* AutoNetExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoNetExtension.swift; sourceTree = "<group>"; };
+		B69B7D81215B352D001CE3E6 /* AutoNetDefaultRespose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoNetDefaultRespose.swift; sourceTree = "<group>"; };
+		B69B7D83215B352D001CE3E6 /* AutoNetUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoNetUtil.swift; sourceTree = "<group>"; };
+		B69B7D84215B352D001CE3E6 /* AutoNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoNet.swift; sourceTree = "<group>"; };
+		B69B7D86215B352D001CE3E6 /* NetConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetConfig.swift; sourceTree = "<group>"; };
+		B69B7D87215B352D001CE3E6 /* RealNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealNet.swift; sourceTree = "<group>"; };
+		B69B7D88215B352D001CE3E6 /* TestInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestInterceptor.swift; sourceTree = "<group>"; };
+		B69B7D8A215B352D001CE3E6 /* DefaultLogInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLogInterceptor.swift; sourceTree = "<group>"; };
+		B69B7D8C215B352D001CE3E6 /* RequestParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestParams.swift; sourceTree = "<group>"; };
+		B69B7D8D215B352D001CE3E6 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		B69B7D8F215B352D001CE3E6 /* AutoNetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoNetError.swift; sourceTree = "<group>"; };
+		B69B7D91215B352D001CE3E6 /* RealInterceptorChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealInterceptorChain.swift; sourceTree = "<group>"; };
+		B69B7D92215B352D001CE3E6 /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
+		B69B7D93215B352D001CE3E6 /* Interceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
+		B69B7D94215B352D001CE3E6 /* RealNetInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealNetInterceptor.swift; sourceTree = "<group>"; };
+		B69B7D96215B352D001CE3E6 /* Headers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
+		B69B7D98215B352D001CE3E6 /* AutoNetConvertDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoNetConvertDelegate.swift; sourceTree = "<group>"; };
+		B69B7D99215B352D001CE3E6 /* DefaultJsonConvert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultJsonConvert.swift; sourceTree = "<group>"; };
+		DA54573D1C640184C22B571E /* Pods_AutoNet_Ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoNet_Ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2197FD16EAACC585419BF16 /* Pods-AutoNet-Ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoNet-Ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoNet-Ios/Pods-AutoNet-Ios.debug.xcconfig"; sourceTree = "<group>"; };
+		E3350C79215B33A100B617FF /* AutoNet-Ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AutoNet-Ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3350C7C215B33A100B617FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E3350C7E215B33A100B617FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E3350C81215B33A100B617FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E3350C83215B33A300B617FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E3350C86215B33A300B617FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E3350C88215B33A300B617FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E3350C76215B33A100B617FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93E987C2800CF613423D52D2 /* Pods_AutoNet_Ios.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EF6B7E71B47BC38E4F49192 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA54573D1C640184C22B571E /* Pods_AutoNet_Ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B69B7D7B215B352D001CE3E6 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D7C215B352D001CE3E6 /* closure */,
+				B69B7D7E215B352D001CE3E6 /* extension */,
+				B69B7D80215B352D001CE3E6 /* response */,
+				B69B7D82215B352D001CE3E6 /* util */,
+				B69B7D84215B352D001CE3E6 /* AutoNet.swift */,
+				B69B7D85215B352D001CE3E6 /* config */,
+				B69B7D87215B352D001CE3E6 /* RealNet.swift */,
+				B69B7D88215B352D001CE3E6 /* TestInterceptor.swift */,
+				B69B7D89215B352D001CE3E6 /* log */,
+				B69B7D8B215B352D001CE3E6 /* request */,
+				B69B7D8E215B352D001CE3E6 /* error */,
+				B69B7D90215B352D001CE3E6 /* Interceptor */,
+				B69B7D95215B352D001CE3E6 /* header */,
+				B69B7D97215B352D001CE3E6 /* convert */,
+			);
+			path = Net;
+			sourceTree = "<group>";
+		};
+		B69B7D7C215B352D001CE3E6 /* closure */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D7D215B352D001CE3E6 /* AutoNetClosure.swift */,
+			);
+			path = closure;
+			sourceTree = "<group>";
+		};
+		B69B7D7E215B352D001CE3E6 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D7F215B352D001CE3E6 /* AutoNetExtension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		B69B7D80215B352D001CE3E6 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D81215B352D001CE3E6 /* AutoNetDefaultRespose.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		B69B7D82215B352D001CE3E6 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D83215B352D001CE3E6 /* AutoNetUtil.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		B69B7D85215B352D001CE3E6 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D86215B352D001CE3E6 /* NetConfig.swift */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		B69B7D89215B352D001CE3E6 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D8A215B352D001CE3E6 /* DefaultLogInterceptor.swift */,
+			);
+			path = log;
+			sourceTree = "<group>";
+		};
+		B69B7D8B215B352D001CE3E6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D8C215B352D001CE3E6 /* RequestParams.swift */,
+				B69B7D8D215B352D001CE3E6 /* Request.swift */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		B69B7D8E215B352D001CE3E6 /* error */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D8F215B352D001CE3E6 /* AutoNetError.swift */,
+			);
+			path = error;
+			sourceTree = "<group>";
+		};
+		B69B7D90215B352D001CE3E6 /* Interceptor */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D91215B352D001CE3E6 /* RealInterceptorChain.swift */,
+				B69B7D92215B352D001CE3E6 /* Chain.swift */,
+				B69B7D93215B352D001CE3E6 /* Interceptor.swift */,
+				B69B7D94215B352D001CE3E6 /* RealNetInterceptor.swift */,
+			);
+			path = Interceptor;
+			sourceTree = "<group>";
+		};
+		B69B7D95215B352D001CE3E6 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D96215B352D001CE3E6 /* Headers.swift */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
+		B69B7D97215B352D001CE3E6 /* convert */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D98215B352D001CE3E6 /* AutoNetConvertDelegate.swift */,
+				B69B7D99215B352D001CE3E6 /* DefaultJsonConvert.swift */,
+			);
+			path = convert;
+			sourceTree = "<group>";
+		};
+		C2C16162BBCAF7B44412546F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2197FD16EAACC585419BF16 /* Pods-AutoNet-Ios.debug.xcconfig */,
+				12B947BB8306B362E00F4053 /* Pods-AutoNet-Ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E3350C70215B33A100B617FF = {
+			isa = PBXGroup;
+			children = (
+				E3350C7B215B33A100B617FF /* AutoNet-Ios */,
+				E3350C7A215B33A100B617FF /* Products */,
+				C2C16162BBCAF7B44412546F /* Pods */,
+				2EF6B7E71B47BC38E4F49192 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E3350C7A215B33A100B617FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3350C79215B33A100B617FF /* AutoNet-Ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3350C7B215B33A100B617FF /* AutoNet-Ios */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7D7B215B352D001CE3E6 /* Net */,
+				E3350C7C215B33A100B617FF /* AppDelegate.swift */,
+				E3350C7E215B33A100B617FF /* ViewController.swift */,
+				E3350C80215B33A100B617FF /* Main.storyboard */,
+				E3350C83215B33A300B617FF /* Assets.xcassets */,
+				E3350C85215B33A300B617FF /* LaunchScreen.storyboard */,
+				E3350C88215B33A300B617FF /* Info.plist */,
+			);
+			path = "AutoNet-Ios";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E3350C78215B33A100B617FF /* AutoNet-Ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3350C8B215B33A300B617FF /* Build configuration list for PBXNativeTarget "AutoNet-Ios" */;
+			buildPhases = (
+				A4C45DAD3D16694762DA11EC /* [CP] Check Pods Manifest.lock */,
+				E3350C75215B33A100B617FF /* Sources */,
+				E3350C76215B33A100B617FF /* Frameworks */,
+				E3350C77215B33A100B617FF /* Resources */,
+				4ABE22ED902A1CC6B6E130F3 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AutoNet-Ios";
+			productName = "AutoNet-Ios";
+			productReference = E3350C79215B33A100B617FF /* AutoNet-Ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E3350C71215B33A100B617FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = Wwc;
+				TargetAttributes = {
+					E3350C78215B33A100B617FF = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = E3350C74215B33A100B617FF /* Build configuration list for PBXProject "AutoNet-Ios" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E3350C70215B33A100B617FF;
+			productRefGroup = E3350C7A215B33A100B617FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3350C78215B33A100B617FF /* AutoNet-Ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E3350C77215B33A100B617FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3350C87215B33A300B617FF /* LaunchScreen.storyboard in Resources */,
+				E3350C84215B33A300B617FF /* Assets.xcassets in Resources */,
+				E3350C82215B33A100B617FF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4ABE22ED902A1CC6B6E130F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AutoNet-Ios/Pods-AutoNet-Ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AutoNet-Ios/Pods-AutoNet-Ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4C45DAD3D16694762DA11EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutoNet-Ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E3350C75215B33A100B617FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B69B7D9E215B352D001CE3E6 /* AutoNet.swift in Sources */,
+				B69B7DA4215B352D001CE3E6 /* Request.swift in Sources */,
+				B69B7DA0215B352D001CE3E6 /* RealNet.swift in Sources */,
+				B69B7DAA215B352D001CE3E6 /* Headers.swift in Sources */,
+				B69B7D9C215B352D001CE3E6 /* AutoNetDefaultRespose.swift in Sources */,
+				B69B7DA1215B352D001CE3E6 /* TestInterceptor.swift in Sources */,
+				B69B7D9A215B352D001CE3E6 /* AutoNetClosure.swift in Sources */,
+				B69B7DAB215B352D001CE3E6 /* AutoNetConvertDelegate.swift in Sources */,
+				B69B7DA8215B352D001CE3E6 /* Interceptor.swift in Sources */,
+				E3350C7F215B33A100B617FF /* ViewController.swift in Sources */,
+				B69B7D9B215B352D001CE3E6 /* AutoNetExtension.swift in Sources */,
+				B69B7D9D215B352D001CE3E6 /* AutoNetUtil.swift in Sources */,
+				B69B7DA7215B352D001CE3E6 /* Chain.swift in Sources */,
+				B69B7DA9215B352D001CE3E6 /* RealNetInterceptor.swift in Sources */,
+				B69B7DA2215B352D001CE3E6 /* DefaultLogInterceptor.swift in Sources */,
+				B69B7DAC215B352D001CE3E6 /* DefaultJsonConvert.swift in Sources */,
+				B69B7DA6215B352D001CE3E6 /* RealInterceptorChain.swift in Sources */,
+				E3350C7D215B33A100B617FF /* AppDelegate.swift in Sources */,
+				B69B7D9F215B352D001CE3E6 /* NetConfig.swift in Sources */,
+				B69B7DA3215B352D001CE3E6 /* RequestParams.swift in Sources */,
+				B69B7DA5215B352D001CE3E6 /* AutoNetError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E3350C80215B33A100B617FF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3350C81215B33A100B617FF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E3350C85215B33A300B617FF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3350C86215B33A300B617FF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E3350C89215B33A300B617FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E3350C8A215B33A300B617FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E3350C8C215B33A300B617FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2197FD16EAACC585419BF16 /* Pods-AutoNet-Ios.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D68JB6D4VH;
+				INFOPLIST_FILE = "AutoNet-Ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "pppig.AutoNet-Ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E3350C8D215B33A300B617FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12B947BB8306B362E00F4053 /* Pods-AutoNet-Ios.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D68JB6D4VH;
+				INFOPLIST_FILE = "AutoNet-Ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "pppig.AutoNet-Ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E3350C74215B33A100B617FF /* Build configuration list for PBXProject "AutoNet-Ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3350C89215B33A300B617FF /* Debug */,
+				E3350C8A215B33A300B617FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3350C8B215B33A300B617FF /* Build configuration list for PBXNativeTarget "AutoNet-Ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3350C8C215B33A300B617FF /* Debug */,
+				E3350C8D215B33A300B617FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E3350C71215B33A100B617FF /* Project object */;
+}
