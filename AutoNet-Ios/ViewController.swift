@@ -14,10 +14,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        AutoNet.getInstance().createNet()
-        .doGet()
-            .start { (response) in
-                print(response.response)
+        AutoNet.getInstance().createNet(BaseResponse<IndexBody>(), Array<IndexEntity>())
+            .setUrl(url: "/index/test")
+            .doPost()
+            .addParam(key: "pagerNo", value: 0)
+            .addParam(key: "pagerCount", value: 10)
+            .start(handlerBefore: { (response, onError) -> [IndexEntity]? in
+                return response.data?.indexEntitys
+            }, onSuccess: { (entitys) in
+                print(entitys)
+            }) { (error) in
+                print(error)
         }
     }
 

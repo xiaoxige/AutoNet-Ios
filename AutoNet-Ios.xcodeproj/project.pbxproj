@@ -27,6 +27,9 @@
 		B69B7DAA215B352D001CE3E6 /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D96215B352D001CE3E6 /* Headers.swift */; };
 		B69B7DAB215B352D001CE3E6 /* AutoNetConvertDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D98215B352D001CE3E6 /* AutoNetConvertDelegate.swift */; };
 		B69B7DAC215B352D001CE3E6 /* DefaultJsonConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7D99215B352D001CE3E6 /* DefaultJsonConvert.swift */; };
+		B69B7DB2215B3759001CE3E6 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7DB1215B3759001CE3E6 /* BaseResponse.swift */; };
+		B69B7DB4215B3845001CE3E6 /* IndexEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7DB3215B3845001CE3E6 /* IndexEntity.swift */; };
+		B69B7DB6215B38CD001CE3E6 /* IndexBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B7DB5215B38CD001CE3E6 /* IndexBody.swift */; };
 		E3350C7D215B33A100B617FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3350C7C215B33A100B617FF /* AppDelegate.swift */; };
 		E3350C7F215B33A100B617FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3350C7E215B33A100B617FF /* ViewController.swift */; };
 		E3350C82215B33A100B617FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3350C80215B33A100B617FF /* Main.storyboard */; };
@@ -55,6 +58,9 @@
 		B69B7D96215B352D001CE3E6 /* Headers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
 		B69B7D98215B352D001CE3E6 /* AutoNetConvertDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoNetConvertDelegate.swift; sourceTree = "<group>"; };
 		B69B7D99215B352D001CE3E6 /* DefaultJsonConvert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultJsonConvert.swift; sourceTree = "<group>"; };
+		B69B7DB1215B3759001CE3E6 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		B69B7DB3215B3845001CE3E6 /* IndexEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexEntity.swift; sourceTree = "<group>"; };
+		B69B7DB5215B38CD001CE3E6 /* IndexBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexBody.swift; sourceTree = "<group>"; };
 		DA54573D1C640184C22B571E /* Pods_AutoNet_Ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoNet_Ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2197FD16EAACC585419BF16 /* Pods-AutoNet-Ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoNet-Ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoNet-Ios/Pods-AutoNet-Ios.debug.xcconfig"; sourceTree = "<group>"; };
 		E3350C79215B33A100B617FF /* AutoNet-Ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AutoNet-Ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +206,39 @@
 			path = convert;
 			sourceTree = "<group>";
 		};
+		B69B7DAD215B371D001CE3E6 /* index */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7DAE215B372F001CE3E6 /* response */,
+			);
+			path = index;
+			sourceTree = "<group>";
+		};
+		B69B7DAE215B372F001CE3E6 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7DB3215B3845001CE3E6 /* IndexEntity.swift */,
+				B69B7DB5215B38CD001CE3E6 /* IndexBody.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		B69B7DAF215B3738001CE3E6 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7DB0215B373F001CE3E6 /* response */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		B69B7DB0215B373F001CE3E6 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				B69B7DB1215B3759001CE3E6 /* BaseResponse.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
 		C2C16162BBCAF7B44412546F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +269,8 @@
 		E3350C7B215B33A100B617FF /* AutoNet-Ios */ = {
 			isa = PBXGroup;
 			children = (
+				B69B7DAF215B3738001CE3E6 /* base */,
+				B69B7DAD215B371D001CE3E6 /* index */,
 				B69B7D7B215B352D001CE3E6 /* Net */,
 				E3350C7C215B33A100B617FF /* AppDelegate.swift */,
 				E3350C7E215B33A100B617FF /* ViewController.swift */,
@@ -355,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69B7DB6215B38CD001CE3E6 /* IndexBody.swift in Sources */,
 				B69B7D9E215B352D001CE3E6 /* AutoNet.swift in Sources */,
 				B69B7DA4215B352D001CE3E6 /* Request.swift in Sources */,
 				B69B7DA0215B352D001CE3E6 /* RealNet.swift in Sources */,
@@ -364,6 +406,7 @@
 				B69B7D9A215B352D001CE3E6 /* AutoNetClosure.swift in Sources */,
 				B69B7DAB215B352D001CE3E6 /* AutoNetConvertDelegate.swift in Sources */,
 				B69B7DA8215B352D001CE3E6 /* Interceptor.swift in Sources */,
+				B69B7DB2215B3759001CE3E6 /* BaseResponse.swift in Sources */,
 				E3350C7F215B33A100B617FF /* ViewController.swift in Sources */,
 				B69B7D9B215B352D001CE3E6 /* AutoNetExtension.swift in Sources */,
 				B69B7D9D215B352D001CE3E6 /* AutoNetUtil.swift in Sources */,
@@ -372,6 +415,7 @@
 				B69B7DA2215B352D001CE3E6 /* DefaultLogInterceptor.swift in Sources */,
 				B69B7DAC215B352D001CE3E6 /* DefaultJsonConvert.swift in Sources */,
 				B69B7DA6215B352D001CE3E6 /* RealInterceptorChain.swift in Sources */,
+				B69B7DB4215B3845001CE3E6 /* IndexEntity.swift in Sources */,
 				E3350C7D215B33A100B617FF /* AppDelegate.swift in Sources */,
 				B69B7D9F215B352D001CE3E6 /* NetConfig.swift in Sources */,
 				B69B7DA3215B352D001CE3E6 /* RequestParams.swift in Sources */,

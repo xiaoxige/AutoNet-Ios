@@ -18,11 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let config = NetConfing.Builder()
-            .addDefaultBaseUrl(baseUrl: "http://www.baidu.com")
+            .addDefaultBaseUrl(baseUrl: "http://192.168.1.125:8090")
             .addInterceptor(interceptor: DefaultLogInterceptor(), isApped: true)
             .build()
         AutoNet.getInstance().initAutoNet(config: config)
             .setBodyCallback { (response, onError) -> Bool in
+                if(response != nil){
+                    let res = try? AutoNetUtil.jsonToModelConvert(jsonData: response?.data, t: BaseResponse<Any>())
+                    if(res != nil){
+                        if(!res!!.isSuccess()){
+                            if(onError != nil){
+                                onError!(AutoNetError.CustomError(code: res!!.getCode(), message: res!!.getMessage()))
+                                return true;
+                            }
+                        }
+                    }
+                }
                 return false
         }
         
