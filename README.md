@@ -1,4 +1,4 @@
-# AutoNet-Ios（网络框架）
+# AutoNet-Ios（网络框架， 加入了拦截器概念）
 
 	AutoNet代理Alamofire并使用HandyJSON处理了Json数据。 用户直接拿到实体类， 是Ios开发网络应用更加简单
 
