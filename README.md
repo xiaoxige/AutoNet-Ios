@@ -7,7 +7,8 @@
 	https://github.com/xiaoxige/AutoNet-Ios
 ## 2. Android版本：
 	https://github.com/xiaoxige/AutoNet
-
+# AutoNet 技术交流群：
+	QQ: 141027175
 # 特色
 	* 使用简单，调用方便
 	* 完全链式调用
