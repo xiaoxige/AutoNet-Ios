@@ -2,11 +2,13 @@
 //  AppDelegate.swift
 //  AutoNet-Ios
 //
-//  Created by Sir on 2018/9/26.
-//  Copyright © 2018年 Wwc. All rights reserved.
+//  Created by pppig on 2018/11/21.
+//  Copyright © 2018 xiaoxige. All rights reserved.
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,25 +19,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let config = NetConfing.Builder()
-            .addDefaultBaseUrl(baseUrl: "http://192.168.1.125:8090")
-            .addInterceptor(interceptor:ParamsDefaultInterceptor(), isApped: true)
-            .addInterceptor(interceptor: DefaultLogInterceptor(), isApped: true)
+        let config = AutoNetConfig.Builder()
+            .setIsOpenDefaultLog(isOpen: true)
+            .setDefaultDomainName(value: "https://www.baidu.com")
+            .addDomainNames(key: "test", value: "http://192.168.1.125:8090")
+            .addHeadParam(key: "token", value: 0)
+            .addHeadParam(key: "userId", value: "A")
             .build()
-        AutoNet.getInstance().initAutoNet(config: config)
-            .setBodyCallback { (response, onError) -> Bool in
-                if(response != nil){
-                    let res = try? AutoNetUtil.jsonToModelConvert(jsonData: response?.data, t: BaseResponse<Any>())
-                    if(res != nil){
-                        if(!res!!.isSuccess()){
-                            if(onError != nil){
-                                onError!(AutoNetError.CustomError(code: res!!.getCode(), message: res!!.getMessage()))
-                                return true;
-                            }
-                        }
-                    }
-                }
+        AutoNet.getInstance().initAutoNet(config: config).setHeadsCallback { (flag, headers) in
+            
+            }
+            .setBodyCallback { (flag, response, emmit) -> Bool in
+                print("在body中拦截: response = \(response)")
+//                emmit.onError(AutoNetError.EmptyError)
                 return false
+        }
+
+        AutoNet.getInstance().createNet(BaseResponse<String>(), String()).doGet()
+        .setDomainNameKey(domainNameKey: "test")
+        .setSuffixUrl(suffixUrl: "/user/test")
+            .start(handlerBefore: { (response, emmit) -> Bool in
+                let data = response.getData()
+                if(TextUtil.isEmpty(str: data)){
+                    emmit.onError(AutoNetError.EmptyError)
+                    return true
+                }
+                emmit.onNext(data!)
+                return true
+            }, onSuccess: { (response) in
+                print("成功： \(response)")
+            }, onError: { (error) in
+                print("错误")
+            }) {
+                print("为空")
         }
         
         return true
@@ -44,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-        
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
