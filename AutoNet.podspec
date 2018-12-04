@@ -24,8 +24,9 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "it's name is AutoNet, ios net library, use switf language."
-
+  s.description  = <<-DESC
+                    it's name is AutoNet, ios net library, use switf language.
+                      DESC
   s.homepage     = "https://github.com/xiaoxige/AutoNet-Ios"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -51,7 +52,7 @@ s.license      = { :type => "MIT", :file => "LICENSE" }
   #  profile URL.
   #
 
-  s.author             = { "zhuxiaoan-pppig-mac" => "xiaoxigexiaoan@outlook.com" }
+  s.author             = { "xiaoxige" => "xiaoxigexiaoan@outlook.com" }
   # Or just: s.author    = "zhuxiaoan-pppig-mac"
   # s.authors            = { "zhuxiaoan-pppig-mac" => "zhuxiaoan@pangpangpig.com" }
   # s.social_media_url   = "http://twitter.com/zhuxiaoan-pppig-mac"
@@ -63,7 +64,7 @@ s.license      = { :type => "MIT", :file => "LICENSE" }
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -89,7 +90,7 @@ s.license      = { :type => "MIT", :file => "LICENSE" }
   #  Not including the public_header_files will make all headers public.
   #
 
-s.source_files  = "AutoNet", "*.*"
+s.source_files  = "AutoNet/**/*"
 #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -116,7 +117,7 @@ s.source_files  = "AutoNet", "*.*"
   #
 
   # s.framework  = "SomeFramework"
-    s.frameworks = "HandyJSON", "RxSwift", "RxCocoa"
+# s.frameworks = "HandyJSON", "RxSwift", "RxCocoa"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
@@ -128,9 +129,13 @@ s.source_files  = "AutoNet", "*.*"
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-   s.requires_arc = true
+    s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+
+    s.dependency 'HandyJSON', '~> 4.2.0'
+    s.dependency 'RxSwift',    '~> 4.0'
+    s.dependency 'RxCocoa',    '~> 4.0'
 
 end
