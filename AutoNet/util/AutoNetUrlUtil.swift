@@ -13,6 +13,10 @@ import Foundation
  **/
 final class AutoNetUrlUtil{
     
+    public class func autoSplicingFileUrlWithSlashSeparator(basicFilePath: String, needSplicingStrPath: String?) -> String{
+        return AutoNetUrlUtil.autoSplicingUrlWithSlashSeparator(basicUrl: basicFilePath, needSplicingStr: needSplicingStrPath)
+    }
+    
     public class func autoSplicingUrlWithSlashSeparator(basicUrl: String, needSplicingStr: String?) -> String{
         var url: String = basicUrl
         if(!TextUtil.isEmpty(str: needSplicingStr)){

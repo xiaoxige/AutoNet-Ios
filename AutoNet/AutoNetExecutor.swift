@@ -96,7 +96,6 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
     }
     
     public func pullFile(filePath: String, fileName: String, netPattern: AutoNetPattern) -> Void{
-        assert(false, "当前版本暂不支持, 敬请期待")
         self.pullNetFile(filePath: filePath, fileName: fileName, netPattern: netPattern)
     }
     
@@ -239,7 +238,7 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
     
     private func autoNetDataProcessing(response: String?, emitter: RxSwift.AnyObserver<ExpectResponse>) -> Void{
         // 返回体为空, 没有商量的余地, 空错误
-        if(TextUtil.isEmpty(str: response)){
+        if(TextUtil.isEmpty(str: response) && !self.autoNetQuqestType.isPullFile()){
             emitter.onError(AutoNetError.EmptyError)
             emitter.onCompleted()
             return
@@ -255,7 +254,7 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
         let res: Response?
         // json 根据具体情况转实体类
         // 1. AutoNetDefaultResponse
-        if(Response.self is AutoNetDefaultResponse.Type){
+        if(Response.self is AutoNetDefaultResponse.Type || self.autoNetQuqestType.isPullFile()){
             res = AutoNetDefaultResponse() as? Response
             (res as! AutoNetDefaultResponse).setResponse(response: response)
         }else {

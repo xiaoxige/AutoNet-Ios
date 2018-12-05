@@ -19,10 +19,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.photoPicker =  UIImagePickerController()
-//        self.photoPicker.sourceType = .photoLibrary
-//        self.present(self.photoPicker, animated: true, completion: nil)
-        self.select_a_picture()
+        
+        // 下载文件
+        
+        let path: String = NSHomeDirectory()
+        
+        AutoNet.getInstance().createNet().doPost()
+        .setResType(resType: AutoNetType.STREAM)
+            .setBaseUrl(baseUrl: "https://www.pangpangpig.com/apk/downLoad/android_4.4.1.apk")
+        .setPullFileParams(filePath: path, fileName: "aaa.apk")
+            .start(handlerBefore: nil, optLocalData: nil, onPregress: { (progress) in
+                print("下载进度: \(progress)%")
+            }, onComplete: { (res) in
+                print("下载完成: \(res)")
+            }, onSuccess: { (response) in
+                print("下载数据返回: \(response)")
+            }, onError: { (error) in
+                print("下载出错:\(error)")
+            }) {
+                print("下载错误为空")
+        }
+        
+//        self.select_a_picture()
     }
     
     
@@ -61,11 +79,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             .setMediaType(mediaType: "jpeg")
             .setPushFileParams(pushFileKey: "upload", filePath: urlString)
             .start(handlerBefore: nil, optLocalData: nil, onPregress: { (progress) in
-                print("上传进度: \(progress)")
+                print("上传进度: \(progress)%")
             }, onComplete: { (path) in
                 print("上传完成(文件路径):\(path)")
             }, onSuccess: { (response) in
-                print("上传完成(后台返回数据):\(response.getResponse())")
+                print("上传完成(后台返回数据):\(String(describing: response.getResponse()))")
             }, onError: { (error) in
                 print("上传出错 error:\(error)")
             }) {
