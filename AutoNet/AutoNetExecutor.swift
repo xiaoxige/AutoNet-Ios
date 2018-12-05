@@ -71,7 +71,7 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
          *  - pullfile
          *  - pushfile
          **/
-        autoNetQuqestType = AutoNetQuqeustTypeUtil(reqType: resType, resType: resType)
+        autoNetQuqestType = AutoNetQuqeustTypeUtil(reqType: reqType, resType: resType)
         self.automaticAdaptation(flag: flag, isOpendefaultLog: isOpendefaultLog, reqType: reqType, writeOutTime: writeOutTime, readOutTime: readOutTime, outTime: outTime, encryptionKey: encryptionKey, isEncryption: isEncryption, encryptionCallback: encryptionCallback, headCallBack: headCallBack, onPregress: onPregress, onComplete: onComplete, onError: onError)
     }
     
@@ -92,7 +92,6 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
     }
     
     public func pushFile(pushFileKey: String, filePath: String, netPattern: AutoNetPattern) -> Void{
-        assert(false, "当前版本暂不支持, 敬请期待")
         self.pushNetFile(pushFileKey: pushFileKey, filePath: filePath, netPattern: netPattern)
     }
     
@@ -226,7 +225,7 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
                 .setUrl(url: self.url)
                 .setMethod(method: netPattern)
                 .setParam(param: RequestParam.Builder().addParams(params: self.params).build())
-                .setHeaders(header: Headers.Builder().addHeaders(headers: self.heads).build())
+                .setHeaders(header: Headers.Builder().addHeader(key: "MediaType", value: self.mediaType).addHeader(key: "Content-Type", value: self.mediaType).addHeaders(headers: self.heads).build())
                 .build()
             
             let chain: RealInterceptorChain = RealInterceptorChain(request: request, interceptors: self.interceptors, index: 0)

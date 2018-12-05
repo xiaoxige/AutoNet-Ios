@@ -92,7 +92,10 @@ class BaseRealInterceptor : Interceptor{
             autoAdaptParam = adaptFromParams(params: params)
         } else if(AutoNetType.JSON == self.reqType){
             autoAdaptParam = adaptJsonParams(params: params)
-        }else {
+        } else if(AutoNetPattern.post == method || AutoNetPattern.put == method){
+            // 默认post/put为json格式
+            autoAdaptParam = adaptJsonParams(params: params)
+        } else {
             assert(false, "未找到合适方式的参数转换...")
         }
         return autoAdaptParam

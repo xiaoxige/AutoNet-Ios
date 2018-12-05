@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .setIsOpenDefaultLog(isOpen: true)
             .setDefaultDomainName(value: "https://www.baidu.com")
             .addDomainNames(key: "test", value: "http://192.168.1.125:8090")
+            .addDomainNames(key: "upFile", value: "https://zimg.pangpangpig.com/")
             .addHeadParam(key: "token", value: 0)
             .addHeadParam(key: "userId", value: "A")
             .build()
@@ -35,24 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return false
         }
 
-        AutoNet.getInstance().createNet(BaseResponse<String>(), String()).doGet()
-        .setDomainNameKey(domainNameKey: "test")
-        .setSuffixUrl(suffixUrl: "/user/test")
-            .start(handlerBefore: { (response, emmit) -> Bool in
-                let data = response.getData()
-                if(TextUtil.isEmpty(str: data)){
-                    emmit.onError(AutoNetError.EmptyError)
-                    return true
-                }
-                emmit.onNext(data!)
-                return true
-            }, onSuccess: { (response) in
-                print("成功： \(response)")
-            }, onError: { (error) in
-                print("错误")
-            }) {
-                print("为空")
-        }
+        let vc = ViewController()
+        self.window?.rootViewController = vc;
+       
+
         
         return true
     }
