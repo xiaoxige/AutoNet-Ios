@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -15,15 +17,134 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        // Do any additional setup after loading the view, typically from a nib.
+        self.view.backgroundColor = UIColor.white
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        self.netZip()
+        
+//        self.localNet()
+        
+//        self.netLocal()
+        
+//        self.net()
+        
+        
+        
+//        self.downFile()
+        
+//        self.select_a_picture()
+    }
+    
+    func netZip() -> Void{
+        // json 数据
+        let first: Observable =  AutoNet.getInstance().createNet(BaseResponse<String>())
+            .doGet()
+            .setDomainNameKey(domainNameKey: "test")
+            .setFlag(flag: "xiaoxige")
+            .setSuffixUrl(suffixUrl: "/user/test").getObservable()
+        // 百度数据
+        let second:Observable = AutoNet.getInstance().createNet()
+        .doGet()
+            .setFlag(flag: "zhuxiaoan")
+        .getObservable()
+        
+        Observable<ContainEntity>.zip(first, second) { (firstEntity, secondEntity) -> ContainEntity in
+            let containEntity: ContainEntity = ContainEntity()
+            containEntity.setFirst(first: firstEntity.getMessage())
+            containEntity.setSecond(second: secondEntity.getResponse())
+            return containEntity
+            }.subscribe(onNext: { (entity) in
+                print("entity.first = \(entity.getFirst()), entity.second = \(entity.getSecond())")
+            }, onError: { (erro) in
+                print("出错了 error = \(erro)")
+            }, onCompleted: {
+            }) {
+                
+        }
+
+    }
+  
+    func netLocal() -> Void{
+        AutoNet.getInstance().createNet(BaseResponse<String>(), String())
+            .doGet()
+            .setDomainNameKey(domainNameKey: "test")
+            .setSuffixUrl(suffixUrl: "/user/test")
+            .setNetStrategy(netStrategy: AutoNetStrategy.NET_LOCAL)
+            .start(handlerBefore: { (response, emmit) -> Bool in
+                let data: String? = response.getData()
+                if(data == nil){
+                    emmit.onError(AutoNetError.EmptyError)
+                    return true
+                }
+                emmit.onNext(data!)
+                return true
+            }, optLocalData: { (request, emmit) -> Bool in
+                emmit.onNext("这个是本地数据~")
+                return true
+            }, onPregress: nil, onComplete: nil, onSuccess: { (response) in
+                print("data = \(response)")
+            }, onError: { (error) in
+                print("请求错误: \(error)")
+            }) {
+                print("请求数据为空")
+        }
+    }
+    
+    func localNet() -> Void {
+        AutoNet.getInstance().createNet(BaseResponse<String>(), String())
+        .doGet()
+            .setDomainNameKey(domainNameKey: "test")
+            .setSuffixUrl(suffixUrl: "/user/test")
+            .setNetStrategy(netStrategy: AutoNetStrategy.LOCAL_NET)
+            .start(handlerBefore: { (response, emmit) -> Bool in
+                let data: String? = response.getData()
+                if(data == nil){
+                    emmit.onError(AutoNetError.EmptyError)
+                    return true
+                }
+                emmit.onNext(data!)
+                return true
+            }, optLocalData: { (request, emmit) -> Bool in
+                emmit.onNext("这个是本地数据~")
+                return true
+            }, onPregress: nil, onComplete: nil, onSuccess: { (response) in
+                print("data = \(response)")
+            }, onError: { (error) in
+                print("请求错误: \(error)")
+            }) {
+                print("请求数据为空")
+        }
+    }
+    
+    func net() -> Void{
+        AutoNet.getInstance().createNet(BaseResponse<String>(), String())
+        .doGet()
+            .setDomainNameKey(domainNameKey: "test")
+        .setSuffixUrl(suffixUrl: "/user/test")
+            .start(handlerBefore: { (response, emmit) -> Bool in
+                let data: String? = response.getData()
+                if(data == nil){
+                    emmit.onError(AutoNetError.EmptyError)
+                    return true
+                }
+                emmit.onNext(data!)
+                return true
+            }, optLocalData: nil, onPregress: nil, onComplete: nil, onSuccess: { (entity) in
+                print("data = \(entity)")
+            }, onError: { (error) in
+                print("请求错误: \(error)")
+            }) {
+                print("请求数据为空")
+        }
+    }
+    
+    func downFile() ->Void{
         // 下载文件
-        
+
         let path: String = NSHomeDirectory()
-        
+
         AutoNet.getInstance().createNet().doPost()
         .setResType(resType: AutoNetType.STREAM)
             .setBaseUrl(baseUrl: "https://www.pangpangpig.com/apk/downLoad/android_4.4.1.apk")
@@ -39,10 +160,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }) {
                 print("下载错误为空")
         }
-        
-//        self.select_a_picture()
     }
     
+    
+    func select_a_picture(){
+        let alertVC = UIAlertController(title: "请选取上传照片的来源", message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: {
+            (action: UIAlertAction) -> Void in
+            /**
+             写取消后操作
+             */
+        })
+        
+        let action2 = UIAlertAction(title: "从相册选取照片", style: .default, handler: {
+            (action: UIAlertAction) -> Void in
+            
+            self.photoPicker =  UIImagePickerController()
+            self.photoPicker.delegate = self
+            self.photoPicker.sourceType = .photoLibrary
+            //在需要的地方present出来
+            self.present(self.photoPicker, animated: true, completion: nil)
+            
+        })
+        alertVC.addAction(cancelAction)
+        
+        alertVC.addAction(action2)
+        self.present(alertVC, animated: true, completion: nil)
+    }
     
     func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
@@ -57,16 +201,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    
-    //MARK: - Done image capture here
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        self.dismiss(animated: true, completion: nil)
-//        let img = info[UIImagePickerControllerOriginalImage] as? UIImage;
-//        print("info = \(info)")
-        
-//        self.(imageData:UIImageJPEGRepresentation(img!, 0.5)! )
-
-//    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true, completion: nil);
         let url:NSURL = (info[UIImagePickerController.InfoKey.imageURL])! as! NSURL
@@ -90,32 +224,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 print("返回结果为空（但不一定下载失败...eg: 下载成功了， 但是后台返回数据为空了）")
         }
         
-    }
-    
-
-    func select_a_picture(){
-        let alertVC = UIAlertController(title: "请选取上传照片的来源", message: nil, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: {
-            (action: UIAlertAction) -> Void in
-            /**
-             写取消后操作
-             */
-        })
-
-        let action2 = UIAlertAction(title: "从相册选取照片", style: .default, handler: {
-            (action: UIAlertAction) -> Void in
-            
-            self.photoPicker =  UIImagePickerController()
-            self.photoPicker.delegate = self
-            self.photoPicker.sourceType = .photoLibrary
-            //在需要的地方present出来
-            self.present(self.photoPicker, animated: true, completion: nil)
-            
-        })
-        alertVC.addAction(cancelAction)
-        
-        alertVC.addAction(action2)
-        self.present(alertVC, animated: true, completion: nil)
     }
     
     

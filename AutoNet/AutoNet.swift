@@ -335,8 +335,30 @@ final class AutoNet{
             return self
         }
         
+        func setHandlerBefore(handlerBefore: ((Response, AnyObserver<ExpectResponse>) -> Bool)?) -> AutoNet.Net<Response, ExpectResponse> {
+            self.handlerBefore = handlerBefore
+            return self
+        }
+        
         func getObservable() -> Observable<ExpectResponse> {
             return self.createObservable()!
+        }
+        
+        func start(optLocalData: ((Dictionary<String, Any>?, AnyObserver<ExpectResponse>) -> Bool)?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
+            self.start(handlerBefore: nil, optLocalData: optLocalData, onPregress: nil, onComplete: nil, onSuccess: onSuccess, onError: onError, onEmpty: onEmpty)
+        }
+        
+        func start(handlerBefore: ((Response, AnyObserver<ExpectResponse>) -> Bool)?, onPregress: AutoNetFileClosure.onPregress?, onComplete: AutoNetFileClosure.onComplete?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
+            self.start(handlerBefore: handlerBefore, optLocalData: nil, onPregress: onPregress, onComplete: onComplete, onSuccess: onSuccess, onError: onError, onEmpty: onEmpty)
+        }
+        
+        func start(onPregress: AutoNetFileClosure.onPregress?, onComplete: AutoNetFileClosure.onComplete?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
+            self.start(handlerBefore: nil, optLocalData: nil, onPregress: onPregress, onComplete: onComplete, onSuccess: onSuccess
+                , onError: onError, onEmpty: onEmpty)
+        }
+        
+        func start(handlerBefore: ((Response, AnyObserver<ExpectResponse>) -> Bool)?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
+            self.start(handlerBefore: handlerBefore, optLocalData: nil, onPregress: nil, onComplete: nil, onSuccess: onSuccess, onError: onError, onEmpty: onEmpty)
         }
         
         func start(handlerBefore: AutoNetConvertClosure<Response, ExpectResponse>.handlerBefore? = nil, optLocalData: AutoNetDataClosure<ExpectResponseType>.optLocalData? = nil, onPregress: AutoNetFileClosure.onPregress? = nil, onComplete: AutoNetFileClosure.onComplete? = nil, onSuccess: ((ExpectResponse) -> Void)? = nil, onError: AutoNetDataClosure<Any>.onError? = nil, onEmpty: AutoNetDataClosure<Any>.onEmpty? = nil) {
@@ -725,9 +747,35 @@ protocol NetDelegate {
     func setParams(params: Dictionary<String, Any>) -> ReturnSelfType
     
     /**
+     * 设置提前处理方法，使其可以在获得上游时也可以处理
+     **/
+    @discardableResult
+    func setHandlerBefore(handlerBefore: AutoNetConvertClosure<ResponseType, ExpectResponseType>.handlerBefore?) ->ReturnSelfType
+    
+    /**
      * 得到数据上游
      **/
     func getObservable() -> Observable<ExpectResponseType>
+    
+    /**
+     * 发起请求
+     **/
+    func start(handlerBefore: AutoNetConvertClosure<ResponseType, ExpectResponseType>.handlerBefore?, onSuccess: AutoNetDataClosure<ExpectResponseType>.onSuccess?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) -> Void
+    
+    /**
+     * 发起请求
+     **/
+    func start(optLocalData: AutoNetDataClosure<ExpectResponseType>.optLocalData?, onSuccess: AutoNetDataClosure<ExpectResponseType>.onSuccess?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) -> Void
+    
+    /**
+     * 发起请求
+     **/
+    func start(handlerBefore: AutoNetConvertClosure<ResponseType, ExpectResponseType>.handlerBefore?, onPregress: AutoNetFileClosure.onPregress?, onComplete: AutoNetFileClosure.onComplete?, onSuccess: AutoNetDataClosure<ExpectResponseType>.onSuccess?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) -> Void
+    
+    /**
+     * 发起请求
+     **/
+    func start(onPregress: AutoNetFileClosure.onPregress?, onComplete: AutoNetFileClosure.onComplete?, onSuccess: AutoNetDataClosure<ExpectResponseType>.onSuccess?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) -> Void
     
     /**
      * 发起请求

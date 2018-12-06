@@ -31,15 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             }
             .setBodyCallback { (flag, response, emmit) -> Bool in
-                print("在body中拦截: response = \(response)")
+                print("在body中flag标志w = \(flag ?? "无") 拦截: response = \(response)")
 //                emmit.onError(AutoNetError.EmptyError)
                 return false
         }
 
         let vc = ViewController()
         self.window?.rootViewController = vc;
-       
-
         
         return true
     }

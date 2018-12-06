@@ -17,6 +17,7 @@
 		B619828621B608B500478809 /* BaseRealInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619828521B608B500478809 /* BaseRealInterceptor.swift */; };
 		B619828821B60B3F00478809 /* RealPushFileInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619828721B60B3F00478809 /* RealPushFileInterceptor.swift */; };
 		B619828A21B60E0800478809 /* RealPullFileInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619828921B60E0800478809 /* RealPullFileInterceptor.swift */; };
+		B619828E21B7D41400478809 /* ContainEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619828D21B7D41400478809 /* ContainEntity.swift */; };
 		B6B0464F21A531DD00E2821B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0464E21A531DD00E2821B /* AppDelegate.swift */; };
 		B6B0465121A531DD00E2821B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0465021A531DD00E2821B /* ViewController.swift */; };
 		B6B0465421A531DD00E2821B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6B0465221A531DD00E2821B /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		B619828521B608B500478809 /* BaseRealInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRealInterceptor.swift; sourceTree = "<group>"; };
 		B619828721B60B3F00478809 /* RealPushFileInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealPushFileInterceptor.swift; sourceTree = "<group>"; };
 		B619828921B60E0800478809 /* RealPullFileInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealPullFileInterceptor.swift; sourceTree = "<group>"; };
+		B619828D21B7D41400478809 /* ContainEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainEntity.swift; sourceTree = "<group>"; };
 		B6B0464B21A531DD00E2821B /* AutoNet-Ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AutoNet-Ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6B0464E21A531DD00E2821B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6B0465021A531DD00E2821B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				B6B0465721A531E600E2821B /* LaunchScreen.storyboard */,
 				B6B0465A21A531E600E2821B /* Info.plist */,
 				B619827621B4BE4600478809 /* BaseResponse.swift */,
+				B619828D21B7D41400478809 /* ContainEntity.swift */,
 			);
 			path = "AutoNet-Ios";
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				B619827721B4BE4600478809 /* BaseResponse.swift in Sources */,
 				B6B0468921A6922400E2821B /* RealInterceptorChain.swift in Sources */,
 				B6B0466921A53CDF00E2821B /* AutoNetError.swift in Sources */,
+				B619828E21B7D41400478809 /* ContainEntity.swift in Sources */,
 				B6B0468D21A7D8D400E2821B /* AutoNetType.swift in Sources */,
 				D14D4BB121AA656F0049C5CA /* TextUtil.swift in Sources */,
 				B6B0467F21A64ADF00E2821B /* AutoNetDataClosure.swift in Sources */,
