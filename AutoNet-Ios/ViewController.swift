@@ -12,29 +12,47 @@ import RxCocoa
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet var scrollView: UIScrollView!
+    
+    
        var photoPicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
+        self.scrollView.backgroundColor = UIColor.white
+        self.scrollView.contentSize = CGSize.init(width:0 , height:  self.scrollView.frame.height * 2)
+        self.scrollView.alwaysBounceVertical = true
         
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+    
+    
+    
+    @IBAction func senterNet(_ sender: Any) {
+        self.net()
+    }
+    
+    @IBAction func senterLocalNet(_ sender: Any) {
+        self.localNet()
+    }
+    
+    
+    @IBAction func senterNetLocal(_ sender: Any) {
+        self.netLocal()
+    }
+    
+    @IBAction func senterPushFile(_ sender: Any) {
+        self.select_a_picture()
+    }
+    
+    @IBAction func senterPullFile(_ sender: Any) {
+        self.downFile()
+    }
+    
+    
+    @IBAction func senterNetZip2(_ sender: Any) {
         self.netZip()
-        
-//        self.localNet()
-        
-//        self.netLocal()
-        
-//        self.net()
-        
-        
-        
-//        self.downFile()
-        
-//        self.select_a_picture()
     }
     
     func netZip() -> Void{
@@ -225,7 +243,4 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
     }
-    
-    
 }
-

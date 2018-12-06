@@ -104,7 +104,7 @@ public final class AutoNetConfig {
             return self
         }
         
-        public func addInterceptor1(interceptor: Interceptor) ->Builder{
+        public func addInterceptor(interceptor: Interceptor) ->Builder{
             self.interceptors.append(interceptor)
             return self
         }

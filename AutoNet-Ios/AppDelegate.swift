@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .setIsOpenDefaultLog(isOpen: true)
             .setDefaultDomainName(value: "https://www.baidu.com")
             .addDomainNames(key: "test", value: "http://192.168.1.125:8090")
-            .addDomainNames(key: "upFile", value: "https://zimg.pangpangpig.com/")
-            .addHeadParam(key: "token", value: 0)
-            .addHeadParam(key: "userId", value: "A")
+            .addDomainNames(key: "upFile", value: "https://zimg.xxxx.com/")
+            // 添加拦截器, 可以添加自己业务相关的拦截器
+            .addInterceptor(interceptor: ParamsInterceptor())
             .build()
         AutoNet.getInstance().initAutoNet(config: config).setHeadsCallback { (flag, headers) in
             
@@ -35,10 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                emmit.onError(AutoNetError.EmptyError)
                 return false
         }
-
-        let vc = ViewController()
-        self.window?.rootViewController = vc;
-        
         return true
     }
 

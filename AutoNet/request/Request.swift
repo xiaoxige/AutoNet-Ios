@@ -46,6 +46,14 @@ public final class Request{
         return self.param
     }
     
+    public func newBuilder() -> Builder{
+        return Builder()
+        .setUrl(url: self.url)
+        .setMethod(method: self.method)
+        .setHeaders(header: self.header)
+        .setParam(param: self.param)
+    }
+    
     public final class Builder{
         
         final var url: String
