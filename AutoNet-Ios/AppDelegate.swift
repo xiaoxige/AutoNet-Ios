@@ -27,20 +27,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // 添加拦截器, 可以添加自己业务相关的拦截器
             .addInterceptor(interceptor: ParamsInterceptor())
             .build()
-        AutoNet.getInstance().initAutoNet(config: config).setHeadsCallback { (flag, headers) in
-            
-            }
-            .setBodyCallback { (flag, response, emmit) -> Bool in
-                print("在body中flag标志w = \(flag ?? "无") 拦截: response = \(response)")
-//                emmit.onError(AutoNetError.EmptyError)
+        AutoNet.getInstance().initAutoNet(config: config)
+            .setEncryptionCallback(encryptionCallback: { (flag, encryptionContent) -> String in
+                // 可通过key去加密参数
+                return encryptionContent ?? ""
+            })
+            .setHeadsCallback { (flag, headers) in
+                // 请求返回头部数据回调
+            }.setBodyCallback { (flag, response, emmit) -> Bool in
+                // 自己处理需要返回true
                 return false
-        }
+            }
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        
+//        let config = AutoNetConfig.Builder()
+//            .setIsOpenDefaultLog(isOpen: true)
+//            .setDefaultDomainName(value: "http://xxx.xxx.com")
+//            .build()
+//        AutoNet.getInstance().initAutoNet(config: config)
+//            .setBodyCallback { (flag, response, emitter) -> Bool in
+//                // 全局， 所有请求都会经过这里
+//                // 可以在这里根据统一的字段去判读code什么的是成功
+//                // 如果不成功可以抛出异常，最后会在onError或者onEmpty中回调
+//                // 可以根据用户自己业务逻辑处理
+//                /**
+//                 * eg: 伪代码(假设 code:0成功, 1000: 数据为空， 其他为错误)
+//                 * let baseResponse = jsonToModel(response)
+//                 * let code = baseResponse.getCode()
+//                 * if(code != 0){
+//                 *      if(code == 1000){
+//                 *          emmit.onError(AutoNetError.Empty)
+//                 *       } else {
+//                 *          emmit.onError(AutoNetError.Custom(code, baseResponse.getMessage))
+//                 *       }
+//                 *      return true
+//                 *  }
+//                 **/
+//                
+//                return false
+//        }
+        
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

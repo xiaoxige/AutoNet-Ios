@@ -241,6 +241,63 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }) {
                 print("返回结果为空（但不一定下载失败...eg: 下载成功了， 但是后台返回数据为空了）")
         }
-        
     }
+    
+//    private func test() -> Void{
+//        // AutoNet请求实例1： 默认返回类型为AutoNet定义好的AutoNetDefaultResponse(其中返回的数据存在对象内部response里)
+//        1. AutoNet.getInstance().createNet()
+//        // AutoNet请求实例2: 不需要二次转换，AutoNet会自动把请求数据进行转换
+//        2. AutoNet.getInstance().createNet(HandyJSON)
+//        // AutoNet请求实例3: 需要二次转换自己关心的数据， 需要复写handlerBefore方法
+//        3. AutoNet.getInstance().createNet(HandyJSON, ExpectResponse)
+//        // 设置请求地址（去除域名）
+//        .setSuffixUrl(suffixUrl: "T##String")
+//        // 设置追踪标志
+//        .setFlag(flag: "T##Any")
+//        // 设置请求参数
+//        .setParam(key: "T##String", value: "T##Any")
+//        .setParams(params: Dictionary<String, Any>())
+//        // 发起post请求
+//        .doPost()
+//        // 发起get请求
+//        .doGet()
+//        // 发起put请求
+//        .doPut()
+//        // 发起delete请求
+//        .doDelete()
+//        // 设置使用的域名的key（默认default）
+//        .setDomainNameKey(domainNameKey: "T##String")
+//        // 设置请求方式
+//        .setNetPattern(netPattern: AutoNetPattern.get)
+//        // 设置请求策略
+//        .setNetStrategy(netStrategy: AutoNetStrategy.NET)
+//        // 设置请求类型（JSON/FORM/STREAM/OTHER）
+//        .setReqType(reqType: AutoNetType.JSON)
+//        // 设置返回类型（JSON/FORM/STREAM/OTHER）
+//        .setResType(resType: AutoNetType.JSON)
+//            // 设置额外参数（主要解决动态的拼在URL中的参数。eg: www.xxx.com/news/1, 最后的那个动态的参数1）
+//        .setExtraDynamicParam(extraDynamicParam: "T##String")
+//        // 设置连接超时时间
+//        .setConnectOutTime(outTime: 5000)
+//        // 设置读取超时时间
+//        .setReadOutTime(readOutTime: 5000)
+//        // 设置写入超时时间
+//        .setWriteOutTime(writeOutTime: 5000)
+//        // 设置解密的key
+//        .setEncryptionKey(encryptionKey: 0)
+//        // 是否开启加密功能
+//        .isEncryption(isEncryption: true)
+//        // 设置MediaType
+//        .setMediaType(mediaType: "T##String")
+//        // 下载文件
+//        .setPullFileParams(filePath: "T##String", fileName: "T##String")
+//        // 上传文件
+//        .setPushFileParams(pushFileKey: "T##String", filePath: "T##String")
+//        // 设置头部数据（临时有效）
+//        .setHeads(heads: Dictionary<String, Any>())
+//            // 获取上游发射者
+//            (1).getObservable()
+//            // 开始请求
+//            (2).start(...)
+//    }
 }
