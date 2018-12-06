@@ -154,6 +154,7 @@ class BaseRealInterceptor : Interceptor{
             return "PUT"
         }
         assert(false, "分析网络请求类型失败...")
+        return ""
     }
     
 }

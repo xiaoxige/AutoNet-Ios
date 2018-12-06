@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "AutoNet"
   s.version      = "1.0.0"
-  s.summary      = "ios net library, use switf language."
+  s.summary      = "A simple net library of ios."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,8 +25,9 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                    it's name is AutoNet, ios net library, use switf language.
-                      DESC
+A simple net library of ios, It's simple, easy to use and convenient
+                   DESC
+
   s.homepage     = "https://github.com/xiaoxige/AutoNet-Ios"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -38,8 +39,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-# s.license      = "MIT (example)"
-s.license      = { :type => "MIT", :file => "LICENSE" }
+  # s.license      = "MIT (example)"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -64,7 +65,7 @@ s.license      = { :type => "MIT", :file => "LICENSE" }
   #
 
   # s.platform     = :ios
-s.platform     = :ios, "8.0"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -90,8 +91,8 @@ s.platform     = :ios, "8.0"
   #  Not including the public_header_files will make all headers public.
   #
 
-s.source_files  = "AutoNet/**/*"
-#s.exclude_files = "Classes/Exclude"
+  s.source_files  = "AutoNet/**/*"
+  # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -117,7 +118,7 @@ s.source_files  = "AutoNet/**/*"
   #
 
   # s.framework  = "SomeFramework"
-# s.frameworks = "HandyJSON", "RxSwift", "RxCocoa"
+  # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
@@ -129,13 +130,12 @@ s.source_files  = "AutoNet/**/*"
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-    s.requires_arc = true
+  s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-
-    s.dependency 'HandyJSON', '~> 4.2.0'
-    s.dependency 'RxSwift',    '~> 4.0'
-    s.dependency 'RxCocoa',    '~> 4.0'
+  s.dependency 'HandyJSON', '~> 4.2.0'
+  s.dependency 'RxSwift',    '~> 4.0'
+  s.dependency 'RxCocoa',    '~> 4.0'
 
 end
