@@ -11,7 +11,7 @@ import Foundation
 /**
  * url拼接工具类
  **/
-final class AutoNetUrlUtil{
+public final class AutoNetUrlUtil{
     
     public class func autoSplicingFileUrlWithSlashSeparator(basicFilePath: String, needSplicingStrPath: String?) -> String{
         return AutoNetUrlUtil.autoSplicingUrlWithSlashSeparator(basicUrl: basicFilePath, needSplicingStr: needSplicingStrPath)

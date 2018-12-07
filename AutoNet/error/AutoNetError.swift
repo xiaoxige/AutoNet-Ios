@@ -11,7 +11,7 @@ import Foundation
 /**
  * AutoNet 错误分类
  **/
-enum AutoNetError : Error{
+public enum AutoNetError : Error{
 
     /**
      * 空数据错误

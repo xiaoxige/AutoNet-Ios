@@ -14,7 +14,7 @@ import RxCocoa
 /**
  * AutoNet
  **/
-final class AutoNet{
+public final class AutoNet{
     
     private static var sAutoNet: AutoNet?
     private static var sConfig: AutoNetConfig?
@@ -165,11 +165,11 @@ final class AutoNet{
         
     }
     
-    final class Net<Response: HandyJSON, ExpectResponse> : NetDelegate{
+    public final class Net<Response: HandyJSON, ExpectResponse> : NetDelegate{
         
-        typealias ResponseType = Response
-        typealias ExpectResponseType = ExpectResponse
-        typealias ReturnSelfType = Net<Response, ExpectResponse>
+        public typealias ResponseType = Response
+        public typealias ExpectResponseType = ExpectResponse
+        public typealias ReturnSelfType = Net<Response, ExpectResponse>
         
         private var flag: Any?
         private var extraDynamicParam: String?
@@ -213,155 +213,155 @@ final class AutoNet{
             self.params = Dictionary<String, Any>()
         }
         
-        func setFlag(flag: Any) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setFlag(flag: Any) -> AutoNet.Net<Response, ExpectResponse> {
             self.flag = flag
             return self
         }
         
-        func setExtraDynamicParam(extraDynamicParam: String) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setExtraDynamicParam(extraDynamicParam: String) -> AutoNet.Net<Response, ExpectResponse> {
             self.extraDynamicParam = extraDynamicParam
             return self
         }
         
-        func setDomainNameKey(domainNameKey: String) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setDomainNameKey(domainNameKey: String) -> AutoNet.Net<Response, ExpectResponse> {
             self.domainNameKey = domainNameKey
             return self
         }
         
-        func setBaseUrl(baseUrl: String) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setBaseUrl(baseUrl: String) -> AutoNet.Net<Response, ExpectResponse> {
             self.baseUrl = baseUrl
             return self
         }
         
-        func setSuffixUrl(suffixUrl: String) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setSuffixUrl(suffixUrl: String) -> AutoNet.Net<Response, ExpectResponse> {
             self.suffixUrl = suffixUrl
             return self
         }
         
-        func setMediaType(mediaType: String) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setMediaType(mediaType: String) -> AutoNet.Net<Response, ExpectResponse> {
             self.mediaType = mediaType
             return self
         }
         
-        func setWriteOutTime(writeOutTime: Int) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setWriteOutTime(writeOutTime: Int) -> AutoNet.Net<Response, ExpectResponse> {
             self.writeOutTime = writeOutTime
             return self
         }
         
-        func setReadOutTime(readOutTime: Int) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setReadOutTime(readOutTime: Int) -> AutoNet.Net<Response, ExpectResponse> {
             self.readOutTime = readOutTime
             return self
         }
         
-        func setConnectOutTime(outTime: Int) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setConnectOutTime(outTime: Int) -> AutoNet.Net<Response, ExpectResponse> {
             self.outTime = outTime
             return self
         }
         
-        func setEncryptionKey(encryptionKey: Int) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setEncryptionKey(encryptionKey: Int) -> AutoNet.Net<Response, ExpectResponse> {
             self.encryptionKey = encryptionKey
             return self
         }
         
-        func isEncryption(isEncryption: Bool) -> AutoNet.Net<Response, ExpectResponse> {
+        public func isEncryption(isEncryption: Bool) -> AutoNet.Net<Response, ExpectResponse> {
             self.isEncryption = isEncryption
             return self
         }
         
-        func setHeads(heads: Dictionary<String, Any>) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setHeads(heads: Dictionary<String, Any>) -> AutoNet.Net<Response, ExpectResponse> {
             self.heads = heads
             return self
         }
         
-        func setNetPattern(netPattern: AutoNetPattern) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setNetPattern(netPattern: AutoNetPattern) -> AutoNet.Net<Response, ExpectResponse> {
             self.netPattern = netPattern
             return self
         }
         
-        func setReqType(reqType: AutoNetType) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setReqType(reqType: AutoNetType) -> AutoNet.Net<Response, ExpectResponse> {
             self.reqType = reqType
             return self
         }
         
-        func setResType(resType: AutoNetType) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setResType(resType: AutoNetType) -> AutoNet.Net<Response, ExpectResponse> {
             self.resType = resType
             return self
         }
         
-        func setNetStrategy(netStrategy: AutoNetStrategy) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setNetStrategy(netStrategy: AutoNetStrategy) -> AutoNet.Net<Response, ExpectResponse> {
             self.netStrategy = netStrategy
             return self
         }
         
-        func setPushFileParams(pushFileKey: String, filePath: String) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setPushFileParams(pushFileKey: String, filePath: String) -> AutoNet.Net<Response, ExpectResponse> {
             self.pushFileKey = pushFileKey
             self.filePath = filePath
             return self
         }
         
-        func setPullFileParams(filePath: String, fileName: String) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setPullFileParams(filePath: String, fileName: String) -> AutoNet.Net<Response, ExpectResponse> {
             self.filePath = filePath
             self.fileName = fileName
             return self
         }
         
-        func doGet() -> AutoNet.Net<Response, ExpectResponse> {
+        public func doGet() -> AutoNet.Net<Response, ExpectResponse> {
             self.netPattern = .get
             return self
         }
         
-        func doPost() -> AutoNet.Net<Response, ExpectResponse> {
+        public func doPost() -> AutoNet.Net<Response, ExpectResponse> {
             self.netPattern = .post
             return self
         }
         
-        func doDelete() -> AutoNet.Net<Response, ExpectResponse> {
+        public func doDelete() -> AutoNet.Net<Response, ExpectResponse> {
             self.netPattern = .delete
             return self
         }
         
-        func doPut() -> AutoNet.Net<Response, ExpectResponse> {
+        public func doPut() -> AutoNet.Net<Response, ExpectResponse> {
             self.netPattern = .put
             return self
         }
         
-        func setParam(key: String, value: Any) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setParam(key: String, value: Any) -> AutoNet.Net<Response, ExpectResponse> {
             self.params[key] = value
             return self
         }
         
-        func setParams(params: Dictionary<String, Any>) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setParams(params: Dictionary<String, Any>) -> AutoNet.Net<Response, ExpectResponse> {
             self.params = AutoNetUtil.mergeDictionary(first: self.params, second: params)
             return self
         }
         
-        func setHandlerBefore(handlerBefore: ((Response, AnyObserver<ExpectResponse>) -> Bool)?) -> AutoNet.Net<Response, ExpectResponse> {
+        public func setHandlerBefore(handlerBefore: ((Response, AnyObserver<ExpectResponse>) -> Bool)?) -> AutoNet.Net<Response, ExpectResponse> {
             self.handlerBefore = handlerBefore
             return self
         }
         
-        func getObservable() -> Observable<ExpectResponse> {
+        public func getObservable() -> Observable<ExpectResponse> {
             return self.createObservable()!
         }
         
-        func start(optLocalData: ((Dictionary<String, Any>?, AnyObserver<ExpectResponse>) -> Bool)?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
+        public func start(optLocalData: ((Dictionary<String, Any>?, AnyObserver<ExpectResponse>) -> Bool)?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
             self.start(handlerBefore: nil, optLocalData: optLocalData, onPregress: nil, onComplete: nil, onSuccess: onSuccess, onError: onError, onEmpty: onEmpty)
         }
         
-        func start(handlerBefore: ((Response, AnyObserver<ExpectResponse>) -> Bool)?, onPregress: AutoNetFileClosure.onPregress?, onComplete: AutoNetFileClosure.onComplete?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
+        public func start(handlerBefore: ((Response, AnyObserver<ExpectResponse>) -> Bool)?, onPregress: AutoNetFileClosure.onPregress?, onComplete: AutoNetFileClosure.onComplete?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
             self.start(handlerBefore: handlerBefore, optLocalData: nil, onPregress: onPregress, onComplete: onComplete, onSuccess: onSuccess, onError: onError, onEmpty: onEmpty)
         }
         
-        func start(onPregress: AutoNetFileClosure.onPregress?, onComplete: AutoNetFileClosure.onComplete?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
+        public func start(onPregress: AutoNetFileClosure.onPregress?, onComplete: AutoNetFileClosure.onComplete?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
             self.start(handlerBefore: nil, optLocalData: nil, onPregress: onPregress, onComplete: onComplete, onSuccess: onSuccess
                 , onError: onError, onEmpty: onEmpty)
         }
         
-        func start(handlerBefore: ((Response, AnyObserver<ExpectResponse>) -> Bool)?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
+        public func start(handlerBefore: ((Response, AnyObserver<ExpectResponse>) -> Bool)?, onSuccess: ((ExpectResponse) -> Void)?, onError: AutoNetDataClosure<Any>.onError?, onEmpty: AutoNetDataClosure<Any>.onEmpty?) {
             self.start(handlerBefore: handlerBefore, optLocalData: nil, onPregress: nil, onComplete: nil, onSuccess: onSuccess, onError: onError, onEmpty: onEmpty)
         }
         
-        func start(handlerBefore: AutoNetConvertClosure<Response, ExpectResponse>.handlerBefore? = nil, optLocalData: AutoNetDataClosure<ExpectResponseType>.optLocalData? = nil, onPregress: AutoNetFileClosure.onPregress? = nil, onComplete: AutoNetFileClosure.onComplete? = nil, onSuccess: ((ExpectResponse) -> Void)? = nil, onError: AutoNetDataClosure<Any>.onError? = nil, onEmpty: AutoNetDataClosure<Any>.onEmpty? = nil) {
+        public func start(handlerBefore: AutoNetConvertClosure<Response, ExpectResponse>.handlerBefore? = nil, optLocalData: AutoNetDataClosure<ExpectResponseType>.optLocalData? = nil, onPregress: AutoNetFileClosure.onPregress? = nil, onComplete: AutoNetFileClosure.onComplete? = nil, onSuccess: ((ExpectResponse) -> Void)? = nil, onError: AutoNetDataClosure<Any>.onError? = nil, onEmpty: AutoNetDataClosure<Any>.onEmpty? = nil) {
                 self.optLocalData = optLocalData
                 self.handlerBefore = handlerBefore
                 self.onPregress = onPregress
@@ -534,7 +534,7 @@ final class AutoNet{
 /**
  * AutoNet的额外配置协议
  **/
-protocol  AutoNetExtraConfigDelegate {
+public protocol  AutoNetExtraConfigDelegate {
     
     /**
      * 设置额外的头部
@@ -594,7 +594,7 @@ protocol  AutoNetExtraConfigDelegate {
 /**
  * 网络请求基础协议
  **/
-protocol NetDelegate {
+public protocol NetDelegate {
     
     associatedtype ResponseType
     

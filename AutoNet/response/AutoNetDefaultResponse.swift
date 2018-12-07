@@ -12,8 +12,11 @@ import HandyJSON
 /***
  * AutoNet的默认返回实体类（当用户未指定返回值时， AutoNet会自动使用该实体类）
  **/
-final class AutoNetDefaultResponse: HandyJSON{
+public final class AutoNetDefaultResponse: HandyJSON{
     private var response: String?
+    
+    public required init(){
+    }
     
     public func getResponse() -> String?{
         return self.response

@@ -11,7 +11,7 @@ import Foundation
 /**
  * 文件相关的闭包
  **/
-final class AutoNetFileClosure{
+public final class AutoNetFileClosure{
 
     /**
      * 文件进度回调

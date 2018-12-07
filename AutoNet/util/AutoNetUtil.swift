@@ -12,12 +12,12 @@ import HandyJSON
 /**
  * AutoNet 工具类
  */
-final class AutoNetUtil {
+public final class AutoNetUtil {
     
     /**
      * 合并两个字典
      **/
-    class func mergeDictionary(first: Dictionary<String, Any>?, second: Dictionary<String, Any>?) -> Dictionary<String, Any>{
+    public class func mergeDictionary(first: Dictionary<String, Any>?, second: Dictionary<String, Any>?) -> Dictionary<String, Any>{
         var result = Dictionary<String, Any>()
         if(first != nil){
             for key in first!.keys{
@@ -32,7 +32,7 @@ final class AutoNetUtil {
         return result
     }
     
-    class func mergeDictionaryPlus(first: Dictionary<AnyHashable, Any>?, second: Dictionary<AnyHashable, Any>?) -> Dictionary<AnyHashable, Any>{
+   public class func mergeDictionaryPlus(first: Dictionary<AnyHashable, Any>?, second: Dictionary<AnyHashable, Any>?) -> Dictionary<AnyHashable, Any>{
         var result = Dictionary<AnyHashable, Any>()
         if(first != nil){
             for key in first!.keys{
@@ -50,7 +50,7 @@ final class AutoNetUtil {
     /**
      * json 转成实体类（实体类必须继承HandyJson）
      **/
-    class func jsonToModelConvert<T: HandyJSON>(jsonData: Data?, t: T) throws -> T?{
+    public class func jsonToModelConvert<T: HandyJSON>(jsonData: Data?, t: T) throws -> T?{
         if(jsonData == nil){
             return nil
         }
@@ -64,7 +64,7 @@ final class AutoNetUtil {
       * - parameter dictionary: 字典参数
       * - returns: JSONString
      */
-    class func getJSONStringFromDictionary(dictionary: Dictionary<String, Any>?) -> String {
+    public class func getJSONStringFromDictionary(dictionary: Dictionary<String, Any>?) -> String {
         if(dictionary == nil){
             return "{}"
         }

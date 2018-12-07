@@ -11,7 +11,7 @@ import Foundation
 /**
  * 判空工具类
  **/
-final class TextUtil{
+public final class TextUtil{
     
     public class func isEmpty(str: String?) -> Bool{
         return str == nil || str!.count <= 0

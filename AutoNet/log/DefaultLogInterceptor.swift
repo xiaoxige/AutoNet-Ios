@@ -11,9 +11,9 @@ import Foundation
 /**
  * 默认日志实现（用户可根据自己的需求自定义拦截器去制定）
  **/
-class DefaultLogInterceptor: Interceptor{
+public final class DefaultLogInterceptor: Interceptor{
     
-    func intercept(chain: Chain, responseBack: @escaping AutoNetClosure.responseBack) {
+    public func intercept(chain: Chain, responseBack: @escaping AutoNetClosure.responseBack) {
         let request = chain.request()
         let url = request.getUrl()
         let method = request.getMethod()
