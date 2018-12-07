@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "AutoNet"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A simple net library of ios."
 
   # This description is used to generate tags and improve search results.

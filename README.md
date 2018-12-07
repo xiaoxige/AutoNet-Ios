@@ -23,7 +23,7 @@
 	* 可直接获得上游的发射器, 用户自己进行操作结果。（eg: 使用zip去合并多个请求等）
 
 # Pod依赖
-	pod 'AutoNet', '~> 1.0.0'
+	pod 'AutoNet', '~> 1.0.1'
 # 简易使用demo
   ![image](https://github.com/xiaoxige/AutoNet-Ios/raw/master/Screenshots/autonet-ios-demo.png)
 
