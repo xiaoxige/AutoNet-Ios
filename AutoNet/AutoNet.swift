@@ -85,7 +85,7 @@ public final class AutoNet{
         return Net<Response, ExpectResponse>()
     }
     
-    final class AutoNetExtraConfig : AutoNetExtraConfigDelegate{
+    public final class AutoNetExtraConfig : AutoNetExtraConfigDelegate{
         
         private var mExtraHeads: Dictionary<String, Any>
         private var mExtraDomainNames: Dictionary<String, String>
@@ -98,47 +98,47 @@ public final class AutoNet{
             mExtraDomainNames = Dictionary<String, String>()
         }
         
-        func setExtraHeads(extraHeads: Dictionary<String, Any>) -> AutoNetExtraConfigDelegate {
+        public func setExtraHeads(extraHeads: Dictionary<String, Any>) -> AutoNetExtraConfigDelegate {
             self.mExtraHeads = AutoNetUtil.mergeDictionary(first: self.mExtraHeads, second: extraHeads)
             return self
         }
         
-        func setExtraDomainNames(extraDomainNames: Dictionary<String, String>) -> AutoNetExtraConfigDelegate {
+        public func setExtraDomainNames(extraDomainNames: Dictionary<String, String>) -> AutoNetExtraConfigDelegate {
             self.mExtraDomainNames = AutoNetUtil.mergeDictionary(first: self.mExtraDomainNames, second: extraDomainNames) as! Dictionary<String, String>
             return self
         }
         
-        func updateOrInsertHead(key: String, value: Any) -> AutoNetExtraConfigDelegate {
+        public func updateOrInsertHead(key: String, value: Any) -> AutoNetExtraConfigDelegate {
             self.mExtraHeads[key] = value
             return self
         }
         
-        func removeHead(key: String) -> AutoNetExtraConfigDelegate {
+        public func removeHead(key: String) -> AutoNetExtraConfigDelegate {
             self.mExtraHeads.removeValue(forKey: key)
             return self
         }
         
-        func updateOrInsertDomainNames(key: String, value: String) -> AutoNetExtraConfigDelegate {
+        public func updateOrInsertDomainNames(key: String, value: String) -> AutoNetExtraConfigDelegate {
             self.mExtraDomainNames[key] = value
             return self
         }
         
-        func removeDomainName(key: String) -> AutoNetExtraConfigDelegate {
+        public func removeDomainName(key: String) -> AutoNetExtraConfigDelegate {
             self.mExtraDomainNames.removeValue(forKey: key)
             return self
         }
         
-        func setEncryptionCallback(encryptionCallback: @escaping (Int, String?) -> String) -> AutoNetExtraConfigDelegate {
+        public func setEncryptionCallback(encryptionCallback: @escaping (Int, String?) -> String) -> AutoNetExtraConfigDelegate {
             self.mEncryptionCallback = encryptionCallback
             return self
         }
         
-        func setHeadsCallback(headsCallback: @escaping (Any?, Headers) -> Void) -> AutoNetExtraConfigDelegate {
+        public func setHeadsCallback(headsCallback: @escaping (Any?, Headers) -> Void) -> AutoNetExtraConfigDelegate {
             self.mHeadCallBack = headsCallback
             return self
         }
         
-        func setBodyCallback(bodyCallback: @escaping AutoNetClosure.body)-> AutoNetExtraConfigDelegate {
+        public func setBodyCallback(bodyCallback: @escaping AutoNetClosure.body)-> AutoNetExtraConfigDelegate {
             self.mBodyCallBack = bodyCallback
             return self
         }
