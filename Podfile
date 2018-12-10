@@ -9,5 +9,6 @@ target 'AutoNet-Ios' do
   pod 'HandyJSON', '~> 4.2.0'
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
+  pod 'ReachabilitySwift', '~>4.3.0'
   
 end

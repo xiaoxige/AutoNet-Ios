@@ -10,6 +10,7 @@ import Foundation
 import HandyJSON
 import RxSwift
 import RxCocoa
+import Reachability
 
 /**
  * AutoNet 真正的逻辑执行者
@@ -155,11 +156,22 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
     
     private func net(isLocal: Bool = false, pushFileKey: String? = nil, filePath: String? = nil, fileName: String? = nil, netPattern: AutoNetPattern, transmitError: @escaping transmitError, opt: @escaping opt) -> Void{
         
+        if(!isLocal){
+            // 如果不是本地，检查网络
+            let reachability = Reachability.init()
+            let connect = reachability?.connection
+            if(connect == nil || connect! == .none){
+                if(self.onError != nil){
+                    self.onError!(AutoNetError.NetError)
+                }
+                return
+            }
+        }
+        
         let observable = createObservable(isLocal: isLocal, pushFileKey: pushFileKey, filePath: filePath, fileName: fileName, netPattern: netPattern)
 
         observable.subscribe(onNext: { (response) in
             self.asSuccess(data: response)
-            opt()
         }, onError: { (error) in
             if(transmitError()){
                 switch error {
@@ -171,8 +183,11 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
                     break
                 }
             }
+            
+        }, onCompleted: {
+        }){
             opt()
-        }).disposed(by: self.bag)
+        }.disposed(by: self.bag)
     }
     
     public func createObservable(isLocal: Bool, pushFileKey: String? = nil, filePath: String? = nil, fileName: String? = nil, netPattern: AutoNetPattern) -> Observable<ExpectResponse>{
@@ -230,6 +245,7 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
             let chain: RealInterceptorChain = RealInterceptorChain(request: request, interceptors: self.interceptors, index: 0)
             chain.proceed(request: request, responseBack: { (response) in
                 self.autoNetDataProcessing(response: response, emitter: emitter)
+                emitter.onCompleted()
             })
 
             return Disposables.create()
@@ -240,13 +256,14 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
         // 返回体为空, 没有商量的余地, 空错误
         if(TextUtil.isEmpty(str: response) && !self.autoNetQuqestType.isPullFile()){
             emitter.onError(AutoNetError.EmptyError)
-            emitter.onCompleted()
+//            emitter.onCompleted()
             return
         }
         // 回调body
         let simpleAny: AutoNetSimpleAny = AutoNetSimpleAny(emitter: emitter)
         if(self.bodyCallBack != nil){
             if(self.bodyCallBack!(self.flag, response!, simpleAny)){
+//                emitter.onCompleted()
                 return
             }
         }
@@ -260,11 +277,17 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
         }else {
             // 2. 其他情况先转成指定的实体类
             res = JSONDeserializer<Response>.deserializeFrom(json: response, designatedPath: nil)
+            if(res == nil){
+                emitter.onError(AutoNetError.CustomError(code: -1, message: "Json Transformation error, please sure the net return msg is \(response!)"))
+//                emitter.onCompleted()
+                return
+            }
         }
         
         // 提前处理handlerBefore
         if(self.handlerBefore != nil){
             if(self.handlerBefore!(res!, emitter)){
+//                emitter.onCompleted()
                 return
             }
         }
@@ -272,7 +295,7 @@ final class AutoNetExecutor<Response: HandyJSON, ExpectResponse> {
         // 走到这里，可以直接ExpectResponse 强转成Response, 如果出错， 可能没有复写handlerBefore方法
         assert(ExpectResponse.self is Response.Type, "返回数据不一致, 如果确定返回最终类型, 请复写handlerBefore")
         emitter.onNext(res! as! ExpectResponse)
-        emitter.onCompleted()
+//        emitter.onCompleted()
     }
     
     private func asError(error: Error) -> Void{
