@@ -116,6 +116,28 @@
 		}
 	}
 
+# AutoNet提供出的Error
+	/**
+ 	 * AutoNet 错误分类
+ 	 **/
+	public enum AutoNetError : Error{
+	    /**
+	     * 空数据错误（用户在拦截处理空时，可使用该错误）
+	     */
+	    case EmptyError
+	    
+	    /**
+	     * 网络错误（当网络错误，AutoNet会自动抛出该错误）
+	     */
+	    case NetError
+	    
+	    /**
+	     * 自定义错误（自定义错误， code及message可自定义。 其中json转换错误时AutoNet就会以该形式抛出）
+	     */
+	    case CustomError(code: Int, message: String?)
+
+	}
+
 # 使用
 ## 1. 初始化
 ### 1.1 AutoNetConfig(配置AutoNet的基本配置) 注意： 该配置基本是固定的， eg: 域名， 头部数据等
