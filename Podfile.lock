@@ -1,5 +1,5 @@
 PODS:
-  - HandyJSON (4.2.1)
+  - HandyJSON (5.0.0-beta.1)
   - ReachabilitySwift (4.3.0)
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
@@ -8,26 +8,35 @@ PODS:
     - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
-  - HandyJSON (~> 4.2.0)
+  - HandyJSON (from `https://github.com/alibaba/HandyJSON.git`, branch `dev_for_swift5.0`)
   - ReachabilitySwift (~> 4.3.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - HandyJSON
     - ReachabilitySwift
     - RxAtomic
     - RxCocoa
     - RxSwift
 
+EXTERNAL SOURCES:
+  HandyJSON:
+    :branch: dev_for_swift5.0
+    :git: https://github.com/alibaba/HandyJSON.git
+
+CHECKOUT OPTIONS:
+  HandyJSON:
+    :commit: a2ba4e537711ae1fcd9183679c4db878eb171a78
+    :git: https://github.com/alibaba/HandyJSON.git
+
 SPEC CHECKSUMS:
-  HandyJSON: d0c5fc80204f29056d59d3e5c4587fa0b16b60a8
+  HandyJSON: 582477127ab3ab65bd2e471815f1a7b846856978
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
-PODFILE CHECKSUM: c41521dee41f69394707f4d060f6bd76d171d90c
+PODFILE CHECKSUM: c0106e9880f90d8504bfee462b167847c55a0e35
 
 COCOAPODS: 1.5.3

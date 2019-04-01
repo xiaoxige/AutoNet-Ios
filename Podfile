@@ -6,7 +6,8 @@ target 'AutoNet-Ios' do
   use_frameworks!
 
   # Pods for AutoNet-Ios
-  pod 'HandyJSON', '~> 4.2.0'
+  #pod 'HandyJSON', '~> 4.2.1'
+  pod 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON.git', :branch => 'dev_for_swift5.0'
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
   pod 'ReachabilitySwift', '~>4.3.0'
